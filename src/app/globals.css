@@ -4,11 +4,33 @@
 
 :root {
   --background: #ebedf5;
-  --foreground: #171717;
+  --foreground: #191d20f2;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.background-base {
+  background: var(--background);
+}
+
+.border-primary {
+  border: #434c5326 0.5;
+}
+
+header {
+  @apply flex justify-between items-center px-10 py-3 background-base border-primary;
+  backdrop-filter: blur(100px);
+}
+
+header .title {
+  @apply inline-flex items-center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
