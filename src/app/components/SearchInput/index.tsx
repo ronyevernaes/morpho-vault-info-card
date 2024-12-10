@@ -4,23 +4,27 @@ import { FC, useEffect, useMemo, useState } from "react";
 import debounce from "debounce";
 
 import { InputText } from "@/components/ui";
+import { useVaultSearch } from "@/hooks/useVaultSearch";
 
 export const SearchInput: FC = () => {
   const [search, setSearch] = useState<string>("");
+  const [deboucedSearch, setDebouncedSearch] = useState<string>("");
 
-  const debouncedSearch = useMemo(() => debounce((_) => {
-  }, 300), []);
+  const { vaults } = useVaultSearch(deboucedSearch);
+
+  const debouncedSearchCallback = useMemo(() => debounce((criteria) => {
+    setDebouncedSearch(criteria)
+  }, 500), []);
 
   useEffect(() => {
-    debouncedSearch(search);
-  }, [debouncedSearch, search]);
+    debouncedSearchCallback(search);
+  }, [debouncedSearchCallback, search]);
 
   return (
     <InputText
       label="Vault Address"
       placeholder="Enter Vault Address or Name..."
       value={search}
-      error="This is an error message"
       onChange={(e) => setSearch(e.target.value)}
     />
   );
