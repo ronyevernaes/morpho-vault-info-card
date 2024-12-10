@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { Header } from "./components/Header";
+import { ApolloWrapper } from "@/components/connectors/ApolloWrapper";
 
 import "./globals.css";
 
@@ -22,9 +23,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
 
-        <main>
-          {children}
-        </main>
+        <ApolloWrapper>
+          <main>
+            {children}
+          </main>
+        </ApolloWrapper>
       </body>
     </html>
   );
