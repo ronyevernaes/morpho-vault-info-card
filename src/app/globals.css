@@ -5,6 +5,20 @@
 :root {
   --background: #ebedf5;
   --foreground: #191d20f2;
+
+  --border-primary: #434c5326;
+
+  --button-bg-primary: #2973ffd9;
+  --button-bg-primary-hover: #2470ffeb;
+  --button-bg-primary-focus: #2973ffd9;
+  --button-bg-primary-progress: #2470ffbf;
+  --button-bg-primary-disabled-error: #2470ff66;
+  --button-bg-secondary: #191d200f;
+
+  --button-text-primary: #ffffff;
+  --button-text-secondary: #191d20f2;
+
+  --font-size-body-s: 13px;
 }
 
 body {
@@ -17,7 +31,9 @@ body {
 }
 
 .border-primary {
-  border: #434c5326 0.5;
+  border-style: solid;
+  border-color: var(--border-primary);
+  border-width: 0.5px;
 }
 
 header {
@@ -33,4 +49,49 @@ header .title {
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+}
+
+.button {
+  @apply flex items-center;
+  padding: 5px 8px;
+  gap: 2px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.button[data-variant="primary"] {
+  background-color: var(--button-bg-primary);
+  font-size: var(--font-size-body-s);
+  line-height: 24px;
+  color: var(--button-text-primary);
+}
+
+.button[data-variant="primary"]:hover {
+  background-color: var(--button-bg-primary-hover);
+}
+
+.button[data-variant="primary"]:focus {
+  background-color: var(--button-bg-primary-focus);
+}
+
+.button[data-variant="primary"]:disabled {
+  background-color: var(--button-bg-primary-disabled-error);
+}
+
+.button[data-variant="primary"][data-error="true"] {
+  background-color: var(--button-bg-primary-disabled-error);
+}
+
+.button[data-variant="primary"][data-progress="true"] {
+  background-color: var(--button-bg-primary-progress);
+}
+
+.button[data-variant="secondary"] {
+  background-color: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  line-height: 16px;
 }
