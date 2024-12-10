@@ -5,8 +5,13 @@
 :root {
   --background: #ebedf5;
   --foreground: #191d20f2;
+  --foreground-secondary: #434c53b2;
+  --foreground-error: #C73E59F2;
+  --foreground-interactive-disabled: #434C5366;
 
   --border-primary: #434c5326;
+  --border-interactive-active: #5792FFA6;
+  --border-error: #C73E59A6;
 
   --button-bg-primary: #2973ffd9;
   --button-bg-primary-hover: #2470ffeb;
@@ -17,6 +22,11 @@
 
   --button-text-primary: #ffffff;
   --button-text-secondary: #191d20f2;
+
+  --input-text-bg: #191d2008;
+  --input-text-bg-hover: #191d2014;
+  --input-text-bg-focus: #191d201a;
+  --input-text-bg-error: #191D2008;
 
   --font-size-body-s: 13px;
 }
@@ -51,6 +61,11 @@ header .title {
   text-decoration-skip-ink: none;
 }
 
+main {
+  @apply flex flex-col justify-center items-center h-[calc(100vh-56px)];
+}
+
+/* Button Component */
 .button {
   @apply flex items-center;
   padding: 5px 8px;
@@ -95,3 +110,66 @@ header .title {
   color: var(--button-text-secondary);
   line-height: 16px;
 }
+/* End of Button Component */
+
+/* Card Component */
+.card {
+  @apply flex flex-col items-center gap-8 px-10 py-6 border-primary;
+  background-color: #fafcff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 0px 20px 0px 20px;
+  gap: 50px;
+  opacity: 0px;
+  box-shadow: 0px 3px 12px 0px #00000017;
+}
+/* End of Card Component */
+
+/* Input Text Component */
+.input-text {
+  @apply flex flex-col gap-2 w-full;
+}
+
+.input-text > span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--foreground-secondary);
+}
+
+.input-text > input[type="text"] {
+  padding: 8px 12px 8px 10px;
+  gap: 10px;
+  border-radius: 6px;
+  background-color: var(--input-text-bg);
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  outline: none;
+  color: var(--foreground-secondary);
+}
+
+.input-text > input[type="text"]:hover {
+  background-color: var(--input-text-bg-hover);
+}
+
+.input-text > input[type="text"]:is(:focus, :focus-visible) {
+  background-color: var(--input-text-bg-focus);
+  border: 1px solid var(--border-interactive-active);
+}
+
+.input-text > input[type="text"][data-error="true"] {
+  background-color: var(--input-text-bg-error);
+  border: 1px solid var(--border-error);
+  color: var(--foreground-error);
+}
+
+/* End of Input Text Component */
