@@ -5,7 +5,7 @@ import { TryAgainButton } from "./components";
 
 export default function NotFound() {
   return (
-    <div className="not-found">
+    <div className="error-page-container">
       <div>
         <h2>
           <Image src={AlertIcon} width={20} height={20} alt="" />

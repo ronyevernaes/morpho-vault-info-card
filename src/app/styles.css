@@ -72,19 +72,19 @@ main {
   @apply flex flex-col justify-center items-center h-[calc(100vh-56px)];
 }
 
-.not-found {
+.error-page-container {
   @apply flex flex-col items-center gap-3;
 }
 
-.not-found > div {
+.error-page-container > div {
   @apply flex flex-col items-center gap-2;
 }
 
-.not-found h2 {
+.error-page-container h2 {
   @apply flex gap-1 text-base font-semibold;
 }
 
-.not-found p {
+.error-page-container p {
   font-size: 13px;
   font-weight: 500;
   line-height: 20.8px;
