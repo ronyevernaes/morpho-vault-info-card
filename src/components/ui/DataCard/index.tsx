@@ -1,27 +1,18 @@
 import { FC, ReactNode } from "react";
 
-type Item = {
-  id: string | number;
-  content: ReactNode;
-};
-
 type Props = {
-  data: Item[];
+  children?: ReactNode;
   className?: string;
 };
 
-export const DataCard: FC<Props> = ({ data = [], className }) => {
+export const DataCard: FC<Props> = ({ children, className }) => {
   return (
-    <ul className={`data-card ${className}`}>
-      {data.length === 0 && (
-        <li className="no-results">No results {"='("}</li>
+    <div className={`data-card ${className}`}>
+      {!children && (
+        <div className="no-results">No results {"='("}</div>
       )}
 
-      {data.map(({ id, content }) => (
-        <li key={id}>
-          {content}
-        </li>
-      ))}
-    </ul>
+      {children}
+    </div>
   );
 };

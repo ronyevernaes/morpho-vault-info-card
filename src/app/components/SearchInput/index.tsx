@@ -3,6 +3,7 @@
 import { FC, useEffect, useMemo, useRef, useState } from "react";
 import debounce from "debounce";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { InputText, DataCard } from "@/components/ui";
 import { useVaultSearch } from "@/hooks/useVaultSearch";
@@ -13,6 +14,7 @@ export const SearchInput: FC = () => {
   const [search, setSearch] = useState<string>("");
   const [deboucedSearch, setDebouncedSearch] = useState<string>("");
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const { vaults } = useVaultSearch(deboucedSearch);
 
@@ -50,21 +52,24 @@ export const SearchInput: FC = () => {
       />
 
       {deboucedSearch && (
-        <DataCard
-          className="absolute top-16 left-0 right-0"
-          data={vaults?.map((({ id, name }) => ({
-            id,
-            content: (
-              <div className="flex justify-between">
-                <div className="flex gap-1">
-                  <Image src={BlueDot} alt="" />
-                  <span>{name}</span>
-                </div>
-                <Image src={ArrowRight} alt="" />
+        <DataCard className="absolute top-16 left-0 right-0">
+          {vaults?.length > 0 && vaults?.map(((vault) => (
+            <div
+              className="flex justify-between"
+              key={vault.id}
+              onClick={
+                () => router.push(`/vault/${vault.chain.id}/${vault.address}`)
+              }
+            >
+              <div className="flex gap-1">
+                <Image src={BlueDot} alt="" />
+                <span>{vault.name}</span>
               </div>
-            ),
-          })))}
-        />
+
+              <Image src={ArrowRight} alt="" />
+            </div>
+          )))}
+        </DataCard>
       )}
     </div>
   );
