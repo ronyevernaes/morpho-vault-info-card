@@ -1,4 +1,5 @@
-import { useVaultSearchByName, useVaultSearchByFullAddress } from "@/graphql";
+import { useVaultSearchByFullAddress } from "../useVaultSearchByFullAddress";
+import { useVaultSearchByName } from "../useVaultSearchByName";
 
 export const useVaultSearch = (criteria: string) => {
   const {
