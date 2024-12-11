@@ -10,7 +10,7 @@ type Props = {
   as?: ElementType;
   children: ReactNode;
   className?: string;
-  variant?: "primary" |"secondary";
+  variant?: "primary" |"secondary" | "tertiary";
   progress?: boolean;
 } & 
   ButtonHTMLAttributes<HTMLAnchorElement> &

@@ -113,6 +113,12 @@ main {
   color: var(--button-text-secondary);
   line-height: 16px;
 }
+
+.button[data-variant="tertiary"] {
+  background-color: transparent;
+  color: var(--button-text-secondary);
+  line-height: 16px;
+}
 /* End of Button Component */
 
 /* Card Component */
