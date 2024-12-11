@@ -1,0 +1,63 @@
+.input-text {
+  @apply flex flex-col gap-2 w-full;
+}
+
+.input-text > span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--foreground-secondary);
+}
+
+.input-text > .input-container {
+  @apply relative w-full;
+}
+
+.input-text > .input-container > input[type="text"] {
+  width: 100%;
+  padding: 8px 12px 8px 10px;
+  gap: 10px;
+  border-radius: 6px;
+  background-color: var(--input-text-bg);
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  outline: none;
+  color: var(--foreground-secondary);
+}
+
+.input-text > .input-container > input[type="text"]:hover {
+  background-color: var(--input-text-bg-hover);
+}
+
+.input-text > .input-container > input[type="text"]:is(:focus, :focus-visible) {
+  background-color: var(--input-text-bg-focus);
+  border: 1px solid var(--border-interactive-active);
+}
+
+.input-text > .input-container > input[type="text"][data-error="true"] {
+  background-color: var(--input-text-bg-error);
+  border: 1px solid var(--border-error);
+  color: var(--foreground-error);
+}
+
+.input-text > .input-container > input[type="text"][data-error="true"]::placeholder {
+  color: var(--foreground-error);
+}
+
+.input-text > .input-error {
+  @apply text-right;
+  color: var(--foreground-error);
+}
+
+.input-text > .input-container > .input-icon {
+  @apply absolute top-2 right-3;
+}

@@ -1,0 +1,50 @@
+.button {
+  @apply flex items-center;
+  padding: 5px 8px;
+  gap: 2px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.button[data-variant="primary"] {
+  background-color: var(--button-bg-primary);
+  font-size: var(--font-size-body-s);
+  line-height: 24px;
+  color: var(--button-text-primary);
+}
+
+.button[data-variant="primary"]:hover {
+  background-color: var(--button-bg-primary-hover);
+}
+
+.button[data-variant="primary"]:focus {
+  background-color: var(--button-bg-primary-focus);
+}
+
+.button[data-variant="primary"]:disabled {
+  background-color: var(--button-bg-primary-disabled-error);
+}
+
+.button[data-variant="primary"][data-error="true"] {
+  background-color: var(--button-bg-primary-disabled-error);
+}
+
+.button[data-variant="primary"][data-progress="true"] {
+  background-color: var(--button-bg-primary-progress);
+}
+
+.button[data-variant="secondary"] {
+  background-color: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  line-height: 16px;
+}
+
+.button[data-variant="tertiary"] {
+  background-color: transparent;
+  color: var(--button-text-secondary);
+  line-height: 16px;
+}

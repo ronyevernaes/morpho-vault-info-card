@@ -1,5 +1,7 @@
 import { FC, ReactNode } from "react";
 
+import "./styles.css";
+
 type Props = {
   children?: ReactNode;
   className?: string;

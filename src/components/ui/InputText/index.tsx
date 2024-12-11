@@ -2,6 +2,8 @@
 
 import { FC, ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
 
+import "./styles.css";
+
 type Props = {
   label?: ReactNode;
   value: string;

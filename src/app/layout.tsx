@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { Header } from "./components/Header";
 import { ApolloWrapper } from "@/components/connectors/ApolloWrapper";
 
-import "./globals.css";
+import "./styles.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

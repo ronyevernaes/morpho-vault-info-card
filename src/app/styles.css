@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ebedf5;
+  --foreground: #191d20f2;
+  --foreground-primary: #000000;
+  --foreground-secondary: #434c53b2;
+  --foreground-body: #434c53f2;
+  --foreground-error: #C73E59F2;
+  --foreground-interactive-disabled: #434C5366;
+
+  --border-primary: #434c5326;
+  --border-interactive-active: #5792FFA6;
+  --border-error: #C73E59A6;
+
+  --button-bg-primary: #2973ffd9;
+  --button-bg-primary-hover: #2470ffeb;
+  --button-bg-primary-focus: #2973ffd9;
+  --button-bg-primary-progress: #2470ffbf;
+  --button-bg-primary-disabled-error: #2470ff66;
+  --button-bg-secondary: #191d200f;
+
+  --button-text-primary: #ffffff;
+  --button-text-secondary: #191d20f2;
+
+  --input-text-bg: #191d2008;
+  --input-text-bg-hover: #191d2014;
+  --input-text-bg-focus: #191d201a;
+  --input-text-bg-error: #191D2008;
+
+  --base-component-bg: #fafcff;
+  --base-component-bg-hover: #ebedf5;
+
+  --font-size-body-s: 13px;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.background-base {
+  background: var(--background);
+}
+
+@layer utilities {
+  .border-primary {
+    border-style: solid;
+    border-color: var(--border-primary);
+    border-width: 0.5px;
+  }
+}
+
+header {
+  @apply flex justify-between items-center px-10 py-3 background-base border-primary;
+  backdrop-filter: blur(100px);
+}
+
+header .title {
+  @apply inline-flex items-center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+main {
+  @apply flex flex-col justify-center items-center h-[calc(100vh-56px)];
+}
