@@ -1,0 +1,21 @@
+.name {
+  @apply text-lg font-medium;
+  color: var(--foreground-primary);
+}
+
+.curator {
+  @apply text-base font-normal;
+  color: var(--foreground-secondary);
+}
+
+.label {
+  @apply text-lg font-normal;
+  line-height: 28.8px;
+  text-align: left;
+  color: var(--foreground-primary);
+}
+
+.value {
+  @apply text-base font-normal p-0;
+  color: var(--foreground-body) !important;
+}
