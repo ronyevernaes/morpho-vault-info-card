@@ -8,10 +8,22 @@ export interface Vault {
   id: number;
   metadata: VaultMetadata;
   name: string;
+  state?: VaultState;
+}
+
+export interface VaultMetadataCurator {
+  name: string;
 }
 
 export interface VaultMetadata {
   image: string;
+  curators?: VaultMetadataCurator[];
+}
+
+export interface VaultState {
+  owner: string;
+  totalAssetsUsd: number;
+  netApy: number;
 }
 
 export interface VaultSearchResponse {
