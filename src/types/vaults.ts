@@ -5,6 +5,7 @@ export interface Chain {
 export interface Vault {
   address: string;
   chain: Chain;
+  id: number;
   metadata: VaultMetadata;
   name: string;
 }

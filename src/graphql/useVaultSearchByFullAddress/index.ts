@@ -14,6 +14,7 @@ const GQL = gql`
       }
     ) {
       items {
+        id
         address
         chain {
           id
