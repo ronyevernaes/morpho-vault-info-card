@@ -13,7 +13,7 @@ import { Vault } from "@/types/vaults";
 import "./styles.css";
 
 type Props = {
-  params: { address: string, chainId: string };
+  params: Promise<{ address: string, chainId: string }>;
 };
 
 type Response = {
