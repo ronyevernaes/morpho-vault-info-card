@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 import debounce from "debounce";
 import Image from "next/image";
 
@@ -12,6 +12,7 @@ import ArrowRight from "@/assets/icons/arrow-right.svg";
 export const SearchInput: FC = () => {
   const [search, setSearch] = useState<string>("");
   const [deboucedSearch, setDebouncedSearch] = useState<string>("");
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const { vaults } = useVaultSearch(deboucedSearch);
 
@@ -23,8 +24,24 @@ export const SearchInput: FC = () => {
     debouncedSearchCallback(search);
   }, [debouncedSearchCallback, search]);
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setDebouncedSearch("");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <InputText
         label="Vault Address"
         placeholder="Enter Vault Address or Name..."
