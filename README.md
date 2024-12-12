@@ -30,4 +30,3 @@ npm run dev
 - Search supports look up for name (contained) or address (exact). Two queries
   are triggered and the response is joined.
 - Error and not found pages were added.
-## Future improvements
